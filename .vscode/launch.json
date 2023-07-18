@@ -1,24 +1,77 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "externalConsole": false,
-      "cwd": "/home/youngjun/work/CodingTest",
-      "program": "/home/youngjun/work/CodingTest/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
+  "version": "2.0.0",
+  "runner": "terminal",
+  "type": "shell",
+  "echoCommand": true,
+  "presentation" : { "reveal": "always" },
+  "tasks": [
+        //C++ 컴파일
         {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
-    }
+          "label": "save and compile for C++",
+          "command": "g++",
+          "args": [
+              "-g3",
+              "${file}",
+              "-o",               
+              "${fileDirname}/${fileBasenameNoExtension}"
+          ],
+          "group": "build",
+
+
+
+          "problemMatcher": {
+              "fileLocation": [
+                  "relative",
+                  "${workspaceRoot}"
+              ],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+          }
+      },
+      //C 컴파일
+      {
+          "label": "save and compile for C",
+          "command": "gcc",
+          "args": [
+              "-g3",
+              "${file}",
+              "-o",
+              "${fileDirname}/${fileBasenameNoExtension}"
+          ],
+          "group": "build",
+
+
+
+          "problemMatcher": {
+              "fileLocation": [
+                  "relative",
+                  "${workspaceRoot}"
+              ],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+          }
+      },
+
+      {
+
+          "label": "execute",
+
+          "command": "cd ${fileDirname} && ./${fileBasenameNoExtension}",
+
+          "group": "test"
+
+      }
   ]
 }

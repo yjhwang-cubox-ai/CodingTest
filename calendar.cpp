@@ -39,10 +39,15 @@ void Date::AddMonth(int inc){
 }
 
 void Date::AddDay(int inc){
-    // if (month_ == 2){
-    //     day_ 
-    //     int max_day = 28;
-    // }
+    if (month_ == 2){
+        day_ += inc; 
+        int max_day = 28;
+
+        if (day_ > max_day ){
+            
+        }
+        
+    }
 }
 
 void Date::ShowDate(){

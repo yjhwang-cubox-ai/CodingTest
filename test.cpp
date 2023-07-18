@@ -3,22 +3,16 @@ using namespace std;
 
 int main()
 {
-    pair<int, int> number;
-    int a, b;
-    number = {1, 2};
+    int temp[10][10];
 
-    tie(a, b) = number;
+    fill(&temp[0][0], &temp[9][10], 7);
 
-    cout << a << " : " << b << endl; 
-
-    tuple<int, int, int> tup;
-    tup = {1,2,3};
-
-    int x1 = get<0>(tup);
-    int x2 = get<1>(tup);
-    int x3 = get<2>(tup);
-
-    cout << x1 << " : " << x2 << " : " << x3 << endl; 
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            cout << temp[i][j] << " ";
+        }
+        cout << "\n";
+    }
 
     return 0;
 }
