@@ -31,9 +31,9 @@ void using_unique(vector<int> v)
 
 int main()
 {
-    vector<int> s = { 4, 3, 3, 5, 1, 2, 3 };
+    vector<int> s = { 2,2,1,1,2,2,3,3,5,6,7,8,9};
     using_map(s);
-    using_unique(s);
+    using_unique(s); 
 
     return 0;
 }

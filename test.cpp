@@ -1,18 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
+int N, cnt;
+
+void solve(int N){
+    cnt ++;
+    cout << cnt << "\n";
+    if (N==0) return;
+    for (int i = 0; i<3; i++){
+        solve(N-1);
+    }
+    return;
+}
 
 int main()
 {
-    int temp[10][10];
-
-    fill(&temp[0][0], &temp[9][10], 7);
-
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            cout << temp[i][j] << " ";
-        }
-        cout << "\n";
-    }
+       
+    cin >> N;
+    solve(N);
 
     return 0;
 }
